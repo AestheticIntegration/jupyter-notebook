@@ -162,13 +162,14 @@ define([
             // with messages
             if (info.attempt === 1) {
 
-                var msg = i18n.msg._("A connection to the notebook server could not be established." +
-                        " The notebook will continue trying to reconnect. Check your" +
-                        " network connection or notebook server configuration.");
+                var msg = i18n.msg._("A connection to the notebook server could not be established. " +
+                                     "If your notebook has been inactive and no longer responds " +
+                                     "your instance may have been culled to free up resources - "+
+                                     "please create a new instance via ");
 
                 var the_dialog = dialog.kernel_modal({
                     title: i18n.msg._("Connection failed"),
-                    body: msg,
+                    body: $('<div/>').text(msg).append('<a href="/">try.imandra.ai</a>').append('.'),
                     keyboard_manager: that.keyboard_manager,
                     notebook: that.notebook,
                     buttons : {
