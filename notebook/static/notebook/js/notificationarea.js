@@ -169,7 +169,7 @@ define([
 
                 var the_dialog = dialog.kernel_modal({
                     title: i18n.msg._("Connection failed"),
-                    body: $('<div/>').text(msg).append('<a href="https://try.imandra.ai">https://try.imandra.ai</a>').append('.'),
+                    body: $('<div/>').text(msg).append('<a href="/">try.imandra.ai</a>').append('.'),
                     keyboard_manager: that.keyboard_manager,
                     notebook: that.notebook,
                     buttons : {
