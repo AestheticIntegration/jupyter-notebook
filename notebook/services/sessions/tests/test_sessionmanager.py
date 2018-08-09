@@ -93,7 +93,7 @@ class TestSessionManager(TestCase):
         session = self.create_session(path='/path/to/1/test1.ipynb', kernel_name='python')
         # kill the kernel
         sm.kernel_manager.shutdown_kernel(session['kernel']['id'])
-        with self.assertRaises(KeyError):
+        with self.assertRaises(web.HTTPError):
             sm.get_session(session_id=session['id'])
         # no sessions left
         listed = sm.list_sessions()
