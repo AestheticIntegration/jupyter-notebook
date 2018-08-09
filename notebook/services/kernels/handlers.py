@@ -81,6 +81,8 @@ class KernelActionHandler(APIHandler):
 
             try:
                 yield maybe_future(km.restart_kernel(kernel_id))
+            except web.HTTPError as e:
+                raise e
             except Exception as e:
                 self.log.error("Exception restarting kernel", exc_info=True)
                 self.set_status(500)
